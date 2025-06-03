@@ -25,6 +25,6 @@ framework:
             # sync: 'sync://'
 
         routing:
-            'App\Message\AddPonkaToImage': async_priority_high
-            'App\Message\Event\ImagePostDeletedEvent': async
+            'App\Message\AddPonkaToImage': async
+            'App\Message\DeletePhotoFile': async
 
