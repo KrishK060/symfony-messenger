@@ -145,6 +145,20 @@
     "phpdocumentor/type-resolver": {
         "version": "0.4.0"
     },
+    "phpunit/phpunit": {
+        "version": "9.6",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "9.6",
+            "ref": "6a9341aa97d441627f8bd424ae85dc04c944f8b4"
+        },
+        "files": [
+            ".env.test",
+            "phpunit.xml.dist",
+            "tests/bootstrap.php"
+        ]
+    },
     "psr/cache": {
         "version": "1.0.x-dev"
     },
@@ -316,6 +330,21 @@
     },
     "symfony/options-resolver": {
         "version": "4.3-dev"
+    },
+    "symfony/phpunit-bridge": {
+        "version": "7.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "5.1",
+            "ref": "2f91477d6efaed3fb857db87480f7d07d31cbb3e"
+        },
+        "files": [
+            ".env.test",
+            "bin/phpunit",
+            "phpunit.xml.dist",
+            "tests/bootstrap.php"
+        ]
     },
     "symfony/polyfill-intl-idn": {
         "version": "v1.11.0"

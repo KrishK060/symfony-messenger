@@ -40,7 +40,7 @@ class DelteImagePostHandler implements MessageHandlerInterface
         $this->entityManager->remove($imagePost);
         $this->entityManager->flush();
 
-        $this->eventBus->dispatch(new DeletePhotoFile($filename));
+        $this->eventBus->dispatch(new ImagePostDeletedEvent($filename));
 
     }
 }
