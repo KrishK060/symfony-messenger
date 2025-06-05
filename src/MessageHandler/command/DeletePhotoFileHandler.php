@@ -1,7 +1,7 @@
 <?php
-namespace App\MessageHandler;
+namespace App\MessageHandler\command;
 
-use App\Message\DeletePhotoFile;
+use App\Message\command\DeletePhotoFile;
 use App\Photo\PhotoFileManager;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 

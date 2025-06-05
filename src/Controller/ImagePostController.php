@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\ImagePost;
-use App\Message\AddPonkaToImage;
-use App\Message\DeleteImagePost;
+use App\Message\command\AddPonkaToImage;
+use App\Message\command\DeleteImagePost;
 use App\Photo\PhotoPonkaficator;
 use App\Repository\ImagePostRepository;
 use App\Photo\PhotoFileManager;

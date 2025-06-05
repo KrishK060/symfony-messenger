@@ -1,12 +1,17 @@
 framework:
     messenger:
-        default_bus: messenger.bus.default
+        default_bus: command.bus
         buses:
-            messenger.bus.default:
+            command.bus:
                 middleware:
                     - App\MessengerMiddleware\AuditMiddleware
             event.bus: 
                 default_middleware: allow_no_handlers
+                middleware:
+                    - App\MessengerMiddleware\AuditMiddleware
+
+            query.bus: ~        
+
         # Uncomment this (and the failed transport below) to send failed messages to this transport for later handling.
         failure_transport: failed
 
@@ -19,11 +24,24 @@ framework:
             async_priority_high:
                 dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
                 options:
-                    queue_name: high
+                    exchange:
+                        name: message_high_priority
+                    queues:
+                        message_high: 
+                            binding_keys: [high]
+            
+            external_messages:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                options:
+                    auto_setup: false
+                    queues:
+                        message_from_external: ~
+
             failed: 'doctrine://default?queue_name=failed'
             # sync: 'sync://'
 
         routing:
-            'App\Message\AddPonkaToImage': async_priority_high
+            'App\Message\command\AddPonkaToImage': async_priority_high
             'App\Message\Event\ImagePostDeletedEvent': async
+            # 'App\Message\command\DeleteImagePost': [async, async_priority_high]
 

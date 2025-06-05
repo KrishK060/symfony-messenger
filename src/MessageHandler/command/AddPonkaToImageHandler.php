@@ -1,8 +1,9 @@
 <?php
 
-namespace App\MessageHandler;
+namespace App\MessageHandler\command;
 
 use App\Message\AddPonkaToImage;
+use App\Message\Command\AddPonkaToImage as CommandAddPonkaToImage;
 use App\Photo\PhotoFileManager;
 use App\Photo\PhotoPonkaficator;
 use App\Repository\ImagePostRepository;
@@ -46,7 +47,7 @@ class AddPonkaToImageHandler implements MessageHandlerInterface
     }
 
     public function __invoke(
-        AddPonkaToImage $message
+        CommandAddPonkaToImage $message
     )
     {
         $imagePostId = $message->getImagePostId();

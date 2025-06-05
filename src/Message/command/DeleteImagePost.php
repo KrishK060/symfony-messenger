@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Message;
+namespace  App\Message\command;
 
 use App\Entity\ImagePost;
+
 
 class DeleteImagePost
 {
@@ -11,11 +12,10 @@ class DeleteImagePost
      */
     private $imagePost;
 
-    public function __construct(ImagePost $imagePost)
-    {
+    public function __construct(ImagePost $imagePost){
         $this->imagePost = $imagePost;
-    }
 
+    }
     public function getImagePost(): ImagePost
     {
         return $this->imagePost;
